@@ -10,9 +10,10 @@ osascript -e 'tell application "Xcode"
 --    display alert (word -1 of windowName)
 	set currentActiveDocument to document 1 whose name ends with currentActiveDocumentName
 	set currentActiveDocumentPath to path of currentActiveDocument
---	set	currentInsertionPoint to selected character range of currentActiveDocument
---	set output to ("Song: " & song & " - " & artist & " - " & album)
---	do shell script "echo " & quoted form of output
+
+	set	currentSelectionRange to selected character range of currentActiveDocument
+	set	currentInsertionPoint to item 1 of currentSelectionRange
+--    display alert currentInsertionPoint
 
 	tell application "Emacs"
 		activate
